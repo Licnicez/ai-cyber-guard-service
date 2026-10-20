@@ -1,0 +1,12 @@
+services:
+  ai-guard:
+    build: .
+    container_name: ai-cyber-guard-engine
+    restart: always
+    environment:
+      - MODEL_PATH=/app/cyber_ai_model.pkl
+      - AI_GUARD_API_KEY=${AI_GUARD_API_KEY:-ai-cyber-secret-key-2026}
+      - REQUIRE_API_KEY=${REQUIRE_API_KEY:-false}
+      - PORT=8001
+    ports:
+      - "8001:8001"
